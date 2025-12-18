@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #e60076;
+}
+
+@layer utilities {
+  .section-title {
+    @apply text-3xl lg:text-5xl font-medium mb-4 text-[#FFFFFF];
+  }
+  .section-subtitle {
+    @apply text-[#FFFFFF] text-[16px] lg:text-lg leading-relaxed;
+  }
+  .container {
+    @apply container mx-auto px-4 md:px-5;
+  }
+  .bg-face {
+    @apply bg-linear-to-br from-[#1869CC] via-[#742AFE] to-[#E30BEB];
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+}
+/* 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+body {
+  font-family: var(--font-poppins), sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.ant-drawer-close {
+  color: white !important;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ant-btn {
+  box-shadow: none !important;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.boxShadow {
+  box-shadow: 0 0 20px 1px rgba(152, 16, 250, 0.3);
+}
+
+.analysis-modal .ant-modal-content {
+  background: #000000 !important;
+  color: #ffffff !important;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid #3b3b3b !important;
+  padding: 12px 0 !important;
+}
+
+.ant-modal .ant-modal-close {
+  color: #ffffff !important;
+}

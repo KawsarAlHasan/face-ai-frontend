@@ -1,0 +1,101 @@
+
+
+.form-item:last-of-type {
+  margin-bottom: 20px;
+}
+
+.form-item .ant-form-item-label > label {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 400;
+  height: auto;
+}
+
+.form-item .ant-form-item-label {
+  padding-bottom: 6px;
+}
+
+.custom-input,
+.custom-input.ant-input,
+.ant-input-password .ant-input {
+  background: rgba(30, 10, 50, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  padding: 10px 14px;
+  /* height: 42px; */
+}
+
+.ant-input-password {
+  background: rgba(30, 10, 50, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) ;
+  border-radius: 8px;
+  padding: 0 14px;
+  height: 42px;
+}
+
+
+
+.save-button,
+.save-button.ant-btn-primary {
+  background: linear-gradient(90deg, #8E51FF 0%, #E12AFB 100%);
+  border: none;
+  border-radius: 8px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 140px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.save-button:hover,
+.save-button.ant-btn-primary:hover {
+  background: linear-gradient(90deg, #8E51FF 0%, #E12AFB 100%);
+}
+
+
+
+.switch-label {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.switch-description {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.custom-switch.ant-switch {
+  background: rgba(255, 255, 255, 0.2);
+  min-width: 44px;
+  height: 24px;
+}
+
+
+
+.custom-switch.ant-switch:hover:not(.ant-switch-disabled) {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.custom-switch.ant-switch-checked:hover:not(.ant-switch-disabled) {
+  background: linear-gradient(90deg, #9f7aea 0%, #b57df7 100%);
+}
+
+.ant-form-item {
+  margin-bottom: 0;
+}
+
+.ant-input-password-icon {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.ant-input-password-icon:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
