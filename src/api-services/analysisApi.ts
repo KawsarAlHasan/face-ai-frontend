@@ -2,8 +2,8 @@ import {
   AnalysisApiResponse,
   TransformedAnalysisResult,
 } from "@/types/analysis";
-
-const API_BASE_URL = "http://10.10.7.76:14020/api";
+import { fetcherWithTokenPost } from "./api";
+import { fetcherWithTokenPostFormData } from "./api";
 
 export async function analyzeImage(
   imageFile: File
@@ -11,16 +11,14 @@ export async function analyzeImage(
   const formData = new FormData();
   formData.append("image", imageFile);
 
-  const response = await fetch(`${API_BASE_URL}/ai/analyze-image/`, {
-    method: "POST",
-    body: formData,
-  });
+  const response = await fetcherWithTokenPostFormData(
+    `/api/ai/analyze-image/`,
+    formData
+  );
 
-  if (!response.ok) {
-    throw new Error(`Analysis failed: ${response.statusText}`);
-  }
+  console.log("response", response?.data);
 
-  return response.json();
+  return response;
 }
 
 // Helper function to get rating label based on score

@@ -30,3 +30,13 @@ export const fetcherWithTokenPatch = (url: string, data: any) => {
     headers: token ? { Authorization: `Bearer ${token}` } : {},
   }).then((res) => res.data);
 };
+
+
+export const fetcherWithTokenPostFormData = (url: string, formData: FormData) => {
+  const token = Cookies.get("token");
+  return API.post(url, formData, {
+    headers: {
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+  }).then((res) => res.data);
+};

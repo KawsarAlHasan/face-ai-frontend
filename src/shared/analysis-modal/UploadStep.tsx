@@ -1,5 +1,4 @@
 "use client";
-
 import { Check, UploadIcon } from "lucide-react";
 import type React from "react";
 import { useRef } from "react";
@@ -25,10 +24,17 @@ export function UploadStep({ onImageUpload }: UploadStepProps) {
     }
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      onImageUpload(file);
+    }
+  };
+
   return (
     <div className="px-6 pb-6">
       <h2 className="text-xl font-bold text-white mb-2">
-        Start Your Free Analysis 
+        Start Your Free Analysis
       </h2>
       <p className="text-sm text-gray-400 mb-6">
         Upload a clear front-facing photo for the most accurate results
@@ -41,8 +47,8 @@ export function UploadStep({ onImageUpload }: UploadStepProps) {
         onClick={() => fileInputRef.current?.click()}
       >
         <div className="flex justify-center mb-3">
-          <div className="bg-linear-to-br from-[#9810FA] to-[#E60076] p-4 rounded-full">
-            <UploadIcon />
+          <div className="bg-gradient-to-br from-[#9810FA] to-[#E60076] p-4 rounded-full">
+            <UploadIcon className="w-6 h-6 text-white" />
           </div>
         </div>
         <p className="text-white font-medium">
@@ -53,13 +59,13 @@ export function UploadStep({ onImageUpload }: UploadStepProps) {
         </p>
       </div>
 
-      <div className="mt-6 space-y-2 text-sm text-gray-400 bg-linear-to-br from-[#9810FA]/10 to-[#E60076]/10 p-3">
+      <div className="mt-6 space-y-2 text-sm text-gray-400 bg-gradient-to-br from-[#9810FA]/10 to-[#E60076]/10 p-3 rounded-lg">
         <p className="font-semibold text-white">For best results:</p>
-        <ul className="space-y-1 ">
-          {BEST_PRACTICES?.map((practice) => (
+        <ul className="space-y-1">
+          {BEST_PRACTICES.map((practice) => (
             <li key={practice} className="flex items-start gap-2">
               <span className="text-pink-500 shrink-0">
-                <Check />
+                <Check className="w-4 h-4" />
               </span>
               <span>{practice}</span>
             </li>
@@ -72,9 +78,7 @@ export function UploadStep({ onImageUpload }: UploadStepProps) {
         type="file"
         accept="image/*"
         className="hidden"
-        onChange={(e) =>
-          e.target.files?.[0] && onImageUpload(e.target.files[0])
-        }
+        onChange={handleFileChange}
       />
     </div>
   );

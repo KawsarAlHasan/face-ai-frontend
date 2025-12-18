@@ -3,7 +3,7 @@ import StartAnalysis from './StartAnalysis';
 
 const NewScan = () => {
     return (
-        <div className='w-full h-[calc(100vh-140px)]'>
+        <div className='w-full h-screen flex items-center justify-center'> 
            <StartAnalysis />
         </div>
     );

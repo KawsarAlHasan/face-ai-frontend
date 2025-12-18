@@ -46,8 +46,8 @@ export default function PlanCard({
       window.location.href = res?.checkout_url;
 
       console.log(res, "response");
-    } catch (error) {
-      toast.error("Something went wrong");
+    } catch (error: any) {
+      toast.error( error?.response?.data?.error || "Something went wrong");
       console.log(error, "error");
     }
   };

@@ -17,7 +17,7 @@ const Settings = () => {
                 </div>
 
                 {/* Privacy */}
-                <div className="bg-black/50 border border-[#8E51FF80] rounded-xl p-6">
+                {/* <div className="bg-black/50 border border-[#8E51FF80] rounded-xl p-6">
                     <h2 className="text-white md:text-[24px] text-xl font-medium mb-5">Privacy & Data</h2>
 
                     <div className="flex justify-between items-center py-4 border-b border-white/10">
@@ -43,7 +43,7 @@ const Settings = () => {
                         </div>
                         <Switch defaultChecked className="custom-switch" />
                     </div>
-                </div>
+                </div> */}
 
                 {/* Security */}
                 <div className="bg-black/50 border border-[#8E51FF80] rounded-xl p-6">
@@ -52,7 +52,7 @@ const Settings = () => {
                 </div>
 
                 {/* Notification */}
-                <div className="bg-black/50 border border-[#8E51FF80] rounded-xl p-6">
+                {/* <div className="bg-black/50 border border-[#8E51FF80] rounded-xl p-6">
                     <h2 className="text-white md:text-[24px] text-xl font-medium mb-5">Notification</h2>
 
                     <div className="flex justify-between items-center py-4 border-b border-white/10">
@@ -78,7 +78,7 @@ const Settings = () => {
                         </div>
                         <Switch defaultChecked className="custom-switch" />
                     </div>
-                </div>
+                </div> */}
 
             </div>
         </div>

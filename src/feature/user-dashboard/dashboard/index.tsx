@@ -1,12 +1,12 @@
 "use client";
-import { actionCards, recentAnalysis } from "@/constants/dashboard-data";
 import React from "react";
 import Summary from "./Summary";
 import {
   useAnalysisList,
   useDashboardData,
 } from "@/api-services/dashboardServices";
-import { Droplet, Moon, Pipette } from "lucide-react";
+import { Droplet, Moon, Pipette, Sparkles, Image } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const recommendationUIMap: Record<
   string,
@@ -33,6 +33,8 @@ const Dashboard = () => {
   const { dashboardData, isLoading, isError, mutate } = useDashboardData();
   const { analysisList } = useAnalysisList(3);
 
+  const router = useRouter();
+
   const mappedRecommendations =
     dashboardData?.ai_recommendations?.map((rec: any) => {
       const uiConfig = recommendationUIMap[rec.title];
@@ -45,8 +47,6 @@ const Dashboard = () => {
       };
     }) || [];
 
-  // console.log(analysisList?.results, "analysisList");
-
   return (
     <div className="">
       <div className="max-w-[95%] mx-auto space-y-6">
@@ -55,27 +55,45 @@ const Dashboard = () => {
           <div className="lg:col-span-2 ">
             <div className="flex flex-col gap-2">
               <div className=" flex md:flex-row flex-col items-center gap-3 w-full mb-6">
-                {actionCards.map((card, index) => (
-                  <div
-                    key={index}
-                    className="bg-black/60 border-2 border-purple-500/30 rounded-3xl p-6 py-[30px] backdrop-blur-sm w-full"
-                  >
-                    <h2 className="md:text-[22px] text-xl font-normal text-white mb-2">
-                      {card.title}
-                    </h2>
+                <div className="bg-black/60 border-2 border-purple-500/30 rounded-3xl p-6 py-[30px] backdrop-blur-sm w-full">
+                  <h2 className="md:text-[22px] text-xl font-normal text-white mb-2">
+                    Upgrade to Premium
+                  </h2>
 
-                    <p className="text-[#D8D8D8] text-[14px] mb-6">
-                      {card.description}
-                    </p>
+                  <p className="text-[#D8D8D8] text-[14px] mb-6">
+                    Unlock all advanced features instantly.
+                  </p>
 
-                    <button
-                      className="w-full bg-linear-to-r from-purple-500 to-pink-500 
+                  <button
+                    onClick={() => {
+                      router.push("/subscription");
+                    }}
+                    className="w-full cursor-pointer bg-linear-to-r from-purple-500 to-pink-500 
                                       text-white font-medium py-3 rounded-md flex items-center justify-center gap-2"
-                    >
-                      {card.icon} {card.buttonText}
-                    </button>
-                  </div>
-                ))}
+                  >
+                    <Sparkles className="w-5 h-5" /> Continue
+                  </button>
+                </div>
+
+                <div className="bg-black/60 border-2 border-purple-500/30 rounded-3xl p-6 py-[30px] backdrop-blur-sm w-full">
+                  <h2 className="md:text-[22px] text-xl font-normal text-white mb-2">
+                    Start New Analysis
+                  </h2>
+
+                  <p className="text-[#D8D8D8] text-[14px] mb-6">
+                    Upload a selfie to get instant AI-powered insights
+                  </p>
+
+                  <button
+                    onClick={() => {
+                      router.push("/new-scan");
+                    }}
+                    className="w-full cursor-pointer bg-linear-to-r from-purple-500 to-pink-500 
+                                      text-white font-medium py-3 rounded-md flex items-center justify-center gap-2"
+                  >
+                    <Image className="w-5 h-5" /> Upload Photo
+                  </button>
+                </div>
               </div>
 
               <div>
@@ -145,7 +163,9 @@ const Dashboard = () => {
                     <p className="text-pink-400 font-bold">
                       {item?.average_rating || 0}/10
                     </p>
-                    <p className="text-green-400 text-sm">{item?.improvement}</p>
+                    <p className="text-green-400 text-sm">
+                      {item?.improvement}
+                    </p>
                   </div>
                 </div>
               ))}

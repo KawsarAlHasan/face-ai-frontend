@@ -19,13 +19,13 @@ const ProfileInfoForm = () => {
   useEffect(() => {
     if (profileData) {
       form.setFieldsValue({
-        full_name: profileData.full_name || "",
-        email: profileData.email || "",
-        phone_number: profileData.phone_number || "",
+        full_name: profileData?.user?.full_name || "",
+        email: profileData?.user?.email || "",
+        phone_number: profileData?.user?.phone_number || "",
       });
 
-      if (profileData.profile_picture) {
-        setImageUrl(profileData.profile_picture);
+      if (profileData?.user?.profile_picture) {
+        setImageUrl(profileData?.user?.profile_picture);
       }
     }
   }, [profileData, form]);

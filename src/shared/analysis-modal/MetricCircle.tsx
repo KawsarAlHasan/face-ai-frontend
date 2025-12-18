@@ -63,11 +63,11 @@ export function MetricCircle({ name, score }: MetricCircleProps) {
             <div className="text-lg font-bold text-white">
               {score.toFixed(1)}/10
             </div>
-            {/* <div className="text-xs text-gray-400"></div> */}
           </div>
         </div>
       </div>
-      <p className="text-xs text-gray-300 text-center max-w-24 text-nowrap">
+
+      <p className="text-xs text-gray-300 text-center max-w-24 leading-tight">
         {name}
       </p>
     </div>

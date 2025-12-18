@@ -90,22 +90,22 @@ export default function LoginForm() {
             </Button>
 
             {/* Sign In with Google */}
-            <Button
+            {/* <Button
               block
               className="h-10! w-full! lg:h-12! bg-white! text-black! cursor-pointer shadow-none! mb-3 rounded-xl!"
             >
               <FcGoogle size={22} className="mr-2" />
               Sign In with Google
-            </Button>
+            </Button> */}
 
             {/* Sign In with Facebook */}
-            <Button
+            {/* <Button
               block
               className="h-10! w-full! lg:h-12! bg-white! text-black! cursor-pointer shadow-none! mb-3 rounded-xl!"
             >
               <FaFacebook size={20} className="mr-2 text-[#1877F2]" />
               Sign In with Facebook
-            </Button>
+            </Button> */}
           </Form>
         </div>
       </div>
