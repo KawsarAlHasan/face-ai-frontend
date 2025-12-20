@@ -1,49 +1,49 @@
 const features = [
   {
     icon: "/assets/icons/home/features/Icon.svg",
-    title: "Advanced AI Analysis",
+    title: "Analyse avancée de l'IA",
     description:
-      "Our AI analyzes your face across multiple criteria for precise and personalized scoring.",
+      "Notre IA analyse votre visage selon de multiples critères pour un score précis et personnalisé.",
     color: "from-[#9810FA] to-[#8200DB]",
     iconColor: "text-purple-300",
   },
   {
     icon: "/assets/icons/home/features/Icon2.svg",
-    title: "Instant Scanning",
+    title: "Numérisation instantanée",
     description:
-      "Upload a photo and receive your complete analysis within seconds.",
+      "Téléchargez une photo et recevez votre analyse complète en quelques secondes.",
     color: "from-[#E60076] to-[#C6005C]",
     iconColor: "text-magenta-300",
   },
   {
     icon: "/assets/icons/home/features/Icon3.svg",
-    title: "Progress Tracking",
+    title: "Suivi des progrès",
     description:
-      "Monitor your improvements over time with detailed graphs and comparisons.",
+      "Suivez vos progrès au fil du temps grâce à des graphiques et des comparaisons détaillés.",
     color: "from-[#4F39F6] to-[#432DD7]",
     iconColor: "text-blue-300",
   },
   {
     icon: "/assets/icons/home/features/Icon4.svg",
-    title: "Custom Routines",
+    title: "Routines personnalisées",
     description:
-      "Get personalized exercises and routines to naturally enhance your features.",
+      "Obtenez des exercices et des programmes personnalisés pour sublimer naturellement vos atouts.",
     color: "from-[#7F22FE] to-[#7008E7]",
     iconColor: "text-purple-300",
   },
   {
     icon: "/assets/icons/home/features/Icon5.svg",
-    title: "Privacy Guaranteed",
+    title: "Confidentialité garantie",
     description:
-      "Your data is encrypted and secure. Full GDPR compliance for peace of mind.",
+      "Vos données sont cryptées et sécurisées. Conformité totale au RGPD pour une tranquillité d'esprit totale.",
     color: "from-[#C800DE] to-[#A800B7]",
     iconColor: "text-magenta-300",
   },
   {
     icon: "/assets/icons/home/features/Icon6.svg",
-    title: "Active Community",
+    title: "Communauté active",
     description:
-      "Join thousands of users improving their appearance every day.",
+      "Rejoignez les milliers d'utilisateurs qui améliorent leur apparence chaque jour.",
     color: "from-[#9810FA] to-[#E60076]",
     iconColor: "text-pink-300",
   },

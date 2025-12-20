@@ -8,7 +8,7 @@ export default function FAQSection() {
       <div className="mb-12! text-center">
         <h1 className="section-title  ">FAQ</h1>
         <p className="section-subtitle">
-          Learn How Our Smart Matching Helps You
+          Découvrez comment notre système de mise en relation intelligent vous aide
         </p>
       </div>
 

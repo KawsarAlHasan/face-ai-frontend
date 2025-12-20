@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import "./style.css";
 import AuthLogo from "@/shared/AuthLogo";
@@ -10,10 +10,12 @@ import { API } from "@/api-services/api";
 import Cookies from "js-cookie";
 
 export default function RegisterForm() {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const [form] = Form.useForm();
 
   const handleSubmit = async (values: any) => {
+    setLoading(true);
     try {
       const payload = {
         email: values.email,
@@ -28,12 +30,14 @@ export default function RegisterForm() {
 
       if (response.status === 201) {
         Cookies.set("email", values.email);
-        toast.success("Registration successful!");
+        toast.success("Inscription réussie!");
         router.push("/auth/verify-code?mode=register");
       }
     } catch (error: any) {
-      toast.error(error?.response?.data?.email[0] || "Registration failed");
       console.log(error, "error");
+      toast.error(error?.response?.data?.email[0] || "L'inscription a échoué");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -42,52 +46,62 @@ export default function RegisterForm() {
       <AuthLogo />
 
       <div className="text-center w-full!">
-        <h3 className="section-title mb-2!">Sign Up</h3>
+        <h3 className="section-title mb-2!">S'inscrire</h3>
         <p className="text-sm text-[#7E7E7E]">
-          Sign up with your email and password to get started.
+          Inscrivez-vous avec votre adresse e-mail et votre mot de passe pour
+          commencer.
         </p>
 
         <div className="w-full pt-12 grow text-start!">
           <Form form={form} layout="vertical" onFinish={handleSubmit}>
             {/* Name */}
             <Form.Item
-              label="Name"
+              label="Nom"
               name="name"
               className="form-item"
-              rules={[{ required: true, message: "Name is required" }]}
+              rules={[{ required: true, message: "Le nom est requis." }]}
             >
-              <Input placeholder="Enter your name" className="custom-input" />
+              <Input placeholder="Entrez votre nom" className="custom-input" />
             </Form.Item>
 
             {/* Email */}
             <Form.Item
-              label="Email"
+              label="E-mail"
               name="email"
               className="form-item"
               rules={[
-                { required: true, message: "Email is required" },
-                { type: "email", message: "Enter a valid email" },
+                {
+                  required: true,
+                  message: "L'adresse électronique est requise.",
+                },
+                {
+                  type: "email",
+                  message: "Veuillez saisir une adresse e-mail valide.",
+                },
               ]}
             >
-              <Input placeholder="Enter your email" className="custom-input" />
+              <Input
+                placeholder="Saisissez votre adresse e-mail"
+                className="custom-input"
+              />
             </Form.Item>
 
             {/* Password */}
             <Form.Item
-              label="Password"
+              label="Mot de passe"
               name="password"
               className="form-item"
               rules={[
-                { required: true, message: "Password is required" },
+                { required: true, message: "Un mot de passe est requis." },
                 {
                   pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,
                   message:
-                    "Password must be at least 8 characters and contain 1 uppercase letter, 1 number, and 1 special character",
+                    "Le mot de passe doit comporter au moins 8 caractères et inclure 1 lettre majuscule, 1 chiffre et 1 caractère spécial.",
                 },
               ]}
             >
               <Input.Password
-                placeholder="Enter your password"
+                placeholder="Saisissez votre mot de passe"
                 className="custom-input"
               />
             </Form.Item>
@@ -102,31 +116,33 @@ export default function RegisterForm() {
                     value
                       ? Promise.resolve()
                       : Promise.reject(
-                          "You must agree to the Terms and Privacy Policy"
+                          "Vous devez accepter les conditions et la politique de confidentialité."
                         ),
                 },
               ]}
             >
               <Checkbox className="text-[#7E7E7E] text-sm">
-                I agree to all the Terms and privacy policies
+                J'accepte les conditions générales et la politique de
+                confidentialité
               </Checkbox>
             </Form.Item>
 
             {/* Sign Up Button */}
             <Button
+              loading={loading}
               htmlType="submit"
               className="h-10! w-full! lg:h-12! bg-linear-to-r! from-[#9810FA]!  to-[#E60076]! shadow-none! mb-3 rounded-xl!"
             >
-              Sign Up
+              S'inscrire
             </Button>
           </Form>
         </div>
       </div>
 
       <p className="text-sm text-[#7E7E7E]">
-        Already have an account?{" "}
+        Vous avez déjà un compte?{" "}
         <Link href="/auth/login" className="text-[#A855F7] underline">
-          Sign In
+          Se connecter
         </Link>
       </p>
     </div>

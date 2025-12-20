@@ -1,7 +1,7 @@
 const navItems = [
-  { labelKey: "Features", href: "/#features" },
-  { labelKey: "How It Works", href: "/#how-it-works" },
-  { labelKey: "Pricing", href: "/#pricing" },
+  { labelKey: "Caractéristiques", href: "/#features" },
+  { labelKey: "Comment ça marche", href: "/#how-it-works" },
+  { labelKey: "Tarification", href: "/#pricing" },
 ];
 
 export default navItems;

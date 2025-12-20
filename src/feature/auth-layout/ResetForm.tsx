@@ -34,14 +34,14 @@ export default function ResetPasswordForm() {
       Cookies.remove("email");
       Cookies.remove("code");
       Cookies.set("token", response?.data?.tokens?.access);
-      toast.success("Password updated successfully!");
+      toast.success("Mot de passe mis à jour avec succès!");
       router.push("/dashboard");
     } catch (error: any) {
       console.log(error, "error");
       toast.error(
         error?.response?.data?.non_field_errors
           ? error?.response?.data?.non_field_errors[0]
-          : "Something went wrong"
+          : "Une erreur est survenue. Veuillez réessayer."
       );
     } finally {
       setIsSubmitting(false);
@@ -53,48 +53,58 @@ export default function ResetPasswordForm() {
       <AuthLogo />
 
       <div className="text-center">
-        <h3 className="section-title ">Reset Your Password</h3>
+        <h3 className="section-title ">Réinitialiser votre mot de passe</h3>
         <p className="text-sm text-[#7E7E7E]">
-          Enter your new password to reset your account.
+          Saisissez votre nouveau mot de passe pour réinitialiser votre compte.
         </p>
 
         <div className="w-full pt-12 grow text-start!">
           <Form form={form} layout="vertical" onFinish={onFinish}>
             {/* New Password */}
             <Form.Item
-              label="New Password"
+              label="Nouveau mot de passe"
               name="newPassword"
               rules={[
-                { required: true, message: "Please enter your new password" },
+                { required: true, message: "Un mot de passe est requis." },
+                {
+                  pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,
+                  message:
+                    "Le mot de passe doit comporter au moins 8 caractères et inclure 1 lettre majuscule, 1 chiffre et 1 caractère spécial.",
+                },
               ]}
               className="form-item"
             >
               <Input.Password
-                placeholder="Enter new password"
+                placeholder="Saisissez le nouveau mot de passe"
                 className="custom-input"
               />
             </Form.Item>
 
             {/* Confirm Password */}
             <Form.Item
-              label="Confirm Password"
+              label="Confirmez le mot de passe"
               name="confirmPassword"
               dependencies={["newPassword"]}
               rules={[
-                { required: true, message: "Please confirm your password" },
+                {
+                  required: true,
+                  message: "Veuillez confirmer votre mot de passe",
+                },
                 ({ getFieldValue }) => ({
                   validator(_, value) {
                     if (!value || getFieldValue("newPassword") === value) {
                       return Promise.resolve();
                     }
-                    return Promise.reject("Passwords do not match");
+                    return Promise.reject(
+                      "Les mots de passe ne correspondent pas."
+                    );
                   },
                 }),
               ]}
               className="form-item"
             >
               <Input.Password
-                placeholder="Confirm new password"
+                placeholder="Confirmer le nouveau mot de passe"
                 className="custom-input"
               />
             </Form.Item>
@@ -105,7 +115,7 @@ export default function ResetPasswordForm() {
               htmlType="submit"
               className="h-10! w-full! lg:h-12! bg-linear-to-r! from-[#9810FA]! to-[#E60076]! shadow-none! mb-3 rounded-xl!"
             >
-              Reset Password
+              Réinitialiser le mot de passe
             </Button>
           </Form>
         </div>

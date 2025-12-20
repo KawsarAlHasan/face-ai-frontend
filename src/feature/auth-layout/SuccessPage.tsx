@@ -27,12 +27,14 @@ export default function SuccessPage() {
 
       <div className="text-center">
         <h3 className="section-title ">
-          {mode === "reset" ? "Password Reset" : "Sign Up successful"}
+          {mode === "reset"
+            ? "Réinitialisation du mot de passe"
+            : "Inscription réussie"}
         </h3>
         <p className="text-sm text-[#7E7E7E]">
           {mode === "reset"
-            ? "You’ve successfully reset your password."
-            : "You’ve successfully registered your account."}
+            ? "Vous avez réinitialisé votre mot de passe avec succès."
+            : "Votre compte a été enregistré avec succès.."}
         </p>
 
         <div className="w-full pt-12 grow flex justify-center items-center">

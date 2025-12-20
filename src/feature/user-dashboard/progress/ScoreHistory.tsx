@@ -15,7 +15,7 @@ const ScoreHistory = () => {
   return (
     <div>
       {chartData.length === 0 ? (
-        <p className="text-center text-gray-400">No data available</p>
+        <p className="text-center text-gray-400">Aucune donnée disponible</p>
       ) : (
         <div className="h-[220px]">
           <ResponsiveContainer width="100%" height="100%">

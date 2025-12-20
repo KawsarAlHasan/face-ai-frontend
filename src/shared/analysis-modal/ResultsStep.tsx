@@ -12,10 +12,10 @@ export function ResultsStep({ results, onClose }: ResultsStepProps) {
   return (
     <div className="px-6 pb-6 max-h-[90vh] overflow-y-auto">
       <h2 className="text-xl font-semibold text-white mb-1">
-        Your Analysis Results
+        Résultats de votre analyse
       </h2>
       <p className="text-sm text-gray-400 mb-6">
-        Here's your personalized facial analysis report!
+        Voici votre rapport d'analyse faciale personnalisé !
       </p>
 
       {/* Overall Score Card */}
@@ -23,14 +23,14 @@ export function ResultsStep({ results, onClose }: ResultsStepProps) {
         <div className="text-6xl font-bold text-white mb-1">
           {results?.overallScore.toFixed(1)}
         </div>
-        <p className="text-purple-100 font-medium">Overall Score</p>
+        <p className="text-purple-100 font-medium">Score global</p>
         <p className="text-sm text-purple-200 mt-1">{results?.rating}</p>
       </div>
 
       {/* Detailed Breakdown */}
       <div className="mb-6">
         <h3 className="text-lg font-medium text-white mb-4">
-          Detailed Breakdown
+          Analyse détaillée
         </h3>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           {results?.metrics?.map((metric) => (
@@ -49,7 +49,7 @@ export function ResultsStep({ results, onClose }: ResultsStepProps) {
           onClick={onClose}
           className="w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold py-3 rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
         >
-          Close
+          Fermer
         </button>
       )}
     </div>

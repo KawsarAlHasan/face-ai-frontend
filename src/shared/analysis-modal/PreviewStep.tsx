@@ -1,14 +1,11 @@
-// shared/analysis-modal/PreviewStep.tsx
-
 "use client";
-
 import { Check, X, AlertCircle } from "lucide-react";
 import Image from "next/image";
 
 const BEST_PRACTICES = [
-  "Face clearly visible and well-lit",
-  "Front-facing with natural expression",
-  "No accessories or filters",
+  "Visage parfaitement visible et bien éclairé.",
+  "De face, expression naturelle.",
+  "Sans accessoires ni filtres.",
 ];
 
 interface PreviewStepProps {
@@ -27,10 +24,11 @@ export function PreviewStep({
   return (
     <div className="px-6 pb-6">
       <h2 className="text-xl font-bold text-white mb-2">
-        Start Your Free Analysis
+        Commencez votre analyse faciale
       </h2>
       <p className="text-sm text-gray-400 mb-6">
-        Upload a clear front-facing photo for the most accurate results
+        Téléchargez une photo nette prise de face pour obtenir les résultats les
+        plus précis.
       </p>
 
       {/* Error Message */}
@@ -59,7 +57,7 @@ export function PreviewStep({
       </div>
 
       <div className="mt-6 space-y-2 text-sm text-gray-400 bg-gradient-to-br from-[#9810FA]/10 to-[#E60076]/10 p-3 rounded-lg">
-        <p className="font-semibold text-white">For best results:</p>
+        <p className="font-semibold text-white">Pour de meilleurs résultats:</p>
         <ul className="space-y-1">
           {BEST_PRACTICES.map((practice) => (
             <li key={practice} className="flex items-start gap-2">
@@ -77,7 +75,7 @@ export function PreviewStep({
         className="w-full cursor-pointer mt-6 bg-gradient-to-r from-pink-600 to-pink-500 text-white font-semibold py-3 rounded-lg hover:shadow-lg hover:shadow-pink-500/50 transition-all duration-300 flex items-center justify-center gap-2"
       >
         <Check className="w-5 h-5" />
-        Analyze My Face
+        Analysez mon visage
       </button>
     </div>
   );

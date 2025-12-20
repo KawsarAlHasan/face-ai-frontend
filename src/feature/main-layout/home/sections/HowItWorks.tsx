@@ -5,9 +5,9 @@ export default function HowItWorks() {
     <section id="how-it-works" className="relative container py-10 lg:py-20 ">
       {/* Header */}
       <div className="text-center mb-16">
-        <h2 className="section-title mb-3">How It Works</h2>
+        <h2 className="section-title mb-3">Comment ça marche</h2>
         <p className="section-subtitle">
-          Three simple steps to start your transformation journey
+          Trois étapes simples pour entamer votre transformation
         </p>
       </div>
 

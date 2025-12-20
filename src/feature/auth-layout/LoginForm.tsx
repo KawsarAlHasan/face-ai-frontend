@@ -23,12 +23,12 @@ export default function LoginForm() {
 
       const token = response.data.access;
       if (token) {
-        toast.success("Login successful!");
+        toast.success("Connexion réussie!");
         Cookies.set("token", token);
         router.push("/dashboard");
       }
     } catch (error: any) {
-      toast.error(error?.response?.data?.detail || "Login failed");
+      toast.error(error?.response?.data?.detail || "La connexion a échoué");
       console.log(error, "error");
     }
   };
@@ -37,47 +37,59 @@ export default function LoginForm() {
     <div className="flex flex-col justify-between items-center h-full w-full">
       <AuthLogo />
       <div className="text-center w-full">
-        <h3 className="section-title mb-2!">Sign In</h3>
+        <h3 className="section-title mb-2!">Se connecter</h3>
         <p className="text-sm text-[#7E7E7E]">
-          Enter your email and password to access your account
+          Saisissez votre adresse e-mail et votre mot de passe pour accéder à
+          votre compte.
         </p>
 
         <div className="w-full pt-12 grow text-start!">
           <Form form={form1} layout="vertical" onFinish={handleLogin}>
             {/* Email */}
             <Form.Item
-              label="Email"
+              label="E-mail"
               name="email"
               className="form-item"
               rules={[
-                { required: true, message: "Email is required" },
-                { type: "email", message: "Enter a valid email" },
+                {
+                  required: true,
+                  message: "L'adresse électronique est requise.",
+                },
+                {
+                  type: "email",
+                  message: "Veuillez saisir une adresse e-mail valide.",
+                },
               ]}
             >
-              <Input placeholder="Enter your email" className="custom-input" />
+              <Input
+                placeholder="Saisissez votre adresse e-mail"
+                className="custom-input"
+              />
             </Form.Item>
 
             {/* Password */}
             <Form.Item
-              label="Password"
+              label="Mot de passe"
               name="password"
               className="form-item"
-              rules={[{ required: true, message: "Password is required" }]}
+              rules={[
+                { required: true, message: "Un mot de passe est requis." },
+              ]}
             >
               <Input.Password
-                placeholder="Enter your password"
+                placeholder="Saisissez votre mot de passe"
                 className="custom-input"
               />
             </Form.Item>
 
             {/* Remember + Forgot */}
             <div className="flex justify-between items-center mb-4">
-              <Checkbox>Remember me</Checkbox>
+              <Checkbox>Souviens-toi de moi</Checkbox>
               <Link
                 href={"/auth/forget-password"}
                 className="text-[#7E7E7E] text-sm hover:text-white transition cursor-pointer"
               >
-                Forgot Password
+                Mot de passe oublié
               </Link>
             </div>
 
@@ -86,7 +98,7 @@ export default function LoginForm() {
               htmlType="submit"
               className="h-10! w-full! lg:h-12! bg-linear-to-r! from-[#9810FA]!  to-[#E60076]! shadow-none! mb-3 rounded-xl!"
             >
-              Sign In
+              Se connecter
             </Button>
 
             {/* Sign In with Google */}
@@ -110,9 +122,9 @@ export default function LoginForm() {
         </div>
       </div>
       <p className="text-sm text-[#7E7E7E]">
-        Don’t have an account?{" "}
+        Vous n'avez pas de compte?{" "}
         <Link href="/auth/register" className="text-[#A855F7] underline">
-          Sign Up
+          Inscrivez-vous
         </Link>
       </p>
     </div>

@@ -45,12 +45,12 @@ export default function VerifyCodeForm() {
     const finalCode = code.join("");
 
     if (finalCode.length !== 6) {
-      toast.error("Please enter the full 6-digit code");
+      toast.error("Veuillez saisir le code complet à 6 chiffres.");
       return;
     }
 
     if (!email) {
-      toast.error("Email not found. Please try again.");
+      toast.error("Adresse électronique introuvable. Veuillez réessayer.");
       return;
     }
 
@@ -65,7 +65,7 @@ export default function VerifyCodeForm() {
 
         Cookies.set("token", response?.data?.tokens?.access);
 
-        toast.success("Account verified successfully!");
+        toast.success("Compte vérifié avec succès !");
         router.push("/auth/success?mode=register");
       }
 
@@ -79,11 +79,11 @@ export default function VerifyCodeForm() {
 
         console.log(response, "response forget");
 
-        toast.success("Code verified!");
+        toast.success("Code vérifié !");
         router.push("/auth/reset-password");
       }
     } catch (error: any) {
-      toast.error(error?.response?.data?.message || "Verification failed");
+      toast.error(error?.response?.data?.message || "La vérification a échoué.");
       console.error("Verification Error:", error);
     } finally {
       setLoading(false);
@@ -97,9 +97,9 @@ export default function VerifyCodeForm() {
       });
 
       console.log(response, "response resend code");
-      toast.success("Code resent successfully!");
+      toast.success("Code renvoyé avec succès!");
     } catch (error) {
-      toast.error("Failed to resend code. Please try again.");
+      toast.error("Impossible de renvoyer le code. Veuillez réessayer.");
       console.log(error, "error resend code");
     }
   };
@@ -109,10 +109,10 @@ export default function VerifyCodeForm() {
       <AuthLogo />
 
       <div className="text-center">
-        <h3 className="section-title mb-2!">Verify Code</h3>
+        <h3 className="section-title mb-2!">Vérifier le code</h3>
 
         <p className="text-sm text-[#7E7E7E]">
-          Please enter the 6-digit verification code sent to your email:{" "}
+          Veuillez saisir le code de vérification à 6 chiffres envoyé à votre adresse électronique:{" "}
           <strong>{email}</strong>.
         </p>
 
@@ -140,20 +140,20 @@ export default function VerifyCodeForm() {
               loading={loading}
               className="h-10! w-full! lg:h-12! bg-linear-to-r! from-[#9810FA]! to-[#E60076]! shadow-none! mb-3 rounded-xl!"
             >
-              Verify
+              Vérifier
             </Button>
           </Form>
         </div>
       </div>
 
       <p className="text-sm text-[#7E7E7E]">
-        Didn’t receive a code?{" "}
+        Vous n'avez pas reçu de code? {" "}
         <button
           type="button"
           className="text-[#A855F7] underline cursor-pointer"
           onClick={handleResendCode}
         >
-          Resend
+          Renvoyer
         </button>
       </p>
     </div>

@@ -19,38 +19,38 @@ const Progress = () => {
           <StatCard
             icon={<TrendingUp className="w-5 h-5" />}
             value={myProgressData?.improvement_ratings || 0}
-            label="Total Improvement"
+            label="Amélioration totale"
             sublabel={myProgressData?.since_at || ""}
             gradient="from-purple-500 to-pink-500"
           />
           <StatCard
             icon={<Calendar className="w-5 h-5" />}
             value={myProgressData?.days_active || 0}
-            label="Days Active"
+            label="Jours d'activité"
             sublabel={myProgressData?.since_at_active || ""}
             gradient="from-purple-500 to-pink-500"
           />
           <StatCard
             icon={<Target className="w-5 h-5" />}
             value={myProgressData?.goal_score || 0}
-            label="Goal Score"
+            label="Buts marqués"
             sublabel={`+${
               myProgressData?.this_month_improvement_goals || 0
-            } this month`}
+            } ce mois-ci`}
             gradient="from-purple-500 to-pink-500"
           />
           <StatCard
             icon={<ScanLine className="w-5 h-5" />}
             value={myProgressData?.today_scans || 0}
-            label="Today Scan"
-            sublabel="Today's insights"
+            label="Aujourd'hui Scan"
+            sublabel="Perspectives du jour"
             gradient="from-purple-500 to-pink-500"
           />
         </div>
 
         <div className="bg-black/40 backdrop-blur-sm  rounded-2xl p-6 border border-[#9810FA85]">
           <h2 className="text-white md:text-2xl text-xl font-medium mb-6">
-            Score History
+            Historique des scores
           </h2>
           <ScoreHistory />
         </div>
@@ -58,14 +58,14 @@ const Progress = () => {
         <div className="grid md:grid-cols-2 grid-cols-1">
           <div className="bg-black/40 backdrop-blur-sm  rounded-2xl p-6 border border-[#9810FA85] col-span-1">
             <h2 className="text-white md:text-2xl text-xl font-medium mb-6">
-              Detailed Metrics
+              Métriques détaillées
             </h2>
 
             <div className="space-y-6">
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white text-sm font-normal">
-                    Skin Quality
+                    Qualité de la peau
                   </span>
                   {/* <span className="text-pink-400 text-xs font-medium">+2%</span> */}
                 </div>
@@ -89,7 +89,7 @@ const Progress = () => {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white text-sm font-normal">
-                    Cheekbone Structure
+                    Structure des pommettes
                   </span>
                   {/* <span className="text-pink-400 text-xs font-medium">+2%</span> */}
                 </div>
@@ -113,7 +113,7 @@ const Progress = () => {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white text-sm font-normal">
-                    Jawline Definition
+                    Définition de la mâchoire
                   </span>
                   {/* <span className="text-pink-400 text-xs font-medium">+2%</span> */}
                 </div>
@@ -137,7 +137,7 @@ const Progress = () => {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white text-sm font-normal">
-                    Eye Area
+                    Zone oculaire
                   </span>
                   {/* <span className="text-pink-400 text-xs font-medium">+2%</span> */}
                 </div>
@@ -159,7 +159,7 @@ const Progress = () => {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white text-sm font-normal">
-                    Facial Proportions
+                    Proportions faciales
                   </span>
                   {/* <span className="text-pink-400 text-xs font-medium">+2%</span> */}
                 </div>
@@ -183,7 +183,7 @@ const Progress = () => {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white text-sm font-normal">
-                    Symmetry
+                    Symétrie
                   </span>
                   {/* <span className="text-pink-400 text-xs font-medium">+2%</span> */}
                 </div>

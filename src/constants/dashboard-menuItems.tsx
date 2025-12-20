@@ -7,27 +7,27 @@ const  menuItems: MenuProps['items'] = [
         {
             key: '/dashboard',
             icon: <FcHome size={18} />,
-            label: <Link href="/dashboard">Dashboard</Link>,
+            label: <Link href="/dashboard">Tableau de bord</Link>,
         },
         {
             key: '/new-scan',
             icon: <FcAddImage size={18} />,
-            label: <Link href="/new-scan">New Scan </Link>,
+            label: <Link href="/new-scan">Nouvelle analyse</Link>,
         },
         {
             key: '/progress',
             icon: <FcBullish size={18} />,
-            label: <Link href="/progress">Progress</Link>,
+            label: <Link href="/progress">Progrès</Link>,
         },
         {
             key: '/subscription',
             icon: <FcCurrencyExchange size={18} />,
-            label: <Link href="/subscription">Subscription</Link>,
+            label: <Link href="/subscription">Abonnement</Link>,
         },
         {
             key: '/settings',
             icon: <FcSettings size={18} />,
-            label: <Link href="/settings">Settings</Link>,
+            label: <Link href="/settings">Paramètres</Link>,
         }
 ]
 

@@ -12,7 +12,7 @@ const Settings = () => {
 
                 {/* Profile */}
                 <div className="bg-black/50 border border-[#8E51FF80] rounded-xl p-6">
-                    <h2 className="text-white md:text-[24px] text-xl font-medium mb-5">Profile Information</h2>
+                    <h2 className="text-white md:text-[24px] text-xl font-medium mb-5">Informations de profil</h2>
                     <ProfileInfoForm />
                 </div>
 
@@ -47,7 +47,7 @@ const Settings = () => {
 
                 {/* Security */}
                 <div className="bg-black/50 border border-[#8E51FF80] rounded-xl p-6">
-                    <h2 className="text-white md:text-[24px] text-xl font-medium mb-5">Security</h2>
+                    <h2 className="text-white md:text-[24px] text-xl font-medium mb-5">Sécurité</h2>
                     <SecurityForm />
                 </div>
 

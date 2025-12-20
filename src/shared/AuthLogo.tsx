@@ -12,7 +12,7 @@ export default function AuthLogo() {
         className="w-[30px] h-full object-contain"
         alt="logo"
       />
-      <span className="text-[22px] font-medium"> Face Scan</span>
+      <span className="text-[22px] font-medium"> Scan du visage</span>
     </Link>
   );
 }

@@ -19,12 +19,17 @@ export default function ForgetPasswordForm() {
     try {
       const response = await API.post("/api/auth/forgot-password/", values);
       console.log(response, "response");
-      toast.success("Email sent successfully!");
+      toast.success(
+        "Un code de vérification a été envoyé à votre adresse e-mail."
+      );
       Cookies.set("email", values.email);
       router.push("/auth/verify-code?mode=forget");
     } catch (error: any) {
       console.log(error, "error");
-      toast.error(error?.response?.data?.email[0] || "Something went wrong");
+      toast.error(
+        error?.response?.data?.email[0] ||
+          "Une erreur est survenue. Veuillez réessayer."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -34,24 +39,34 @@ export default function ForgetPasswordForm() {
       <AuthLogo />
 
       <div className="text-center">
-        <h3 className="section-title ">Forget Password</h3>
+        <h3 className="section-title ">Mot de passe oublié</h3>
         <p className="text-sm text-[#7E7E7E]">
-          Submit your email to reset your account password.
+          Veuillez saisir votre adresse e-mail pour réinitialiser le mot de
+          passe de votre compte.
         </p>
 
         <div className="w-full pt-12 grow text-start!">
           <Form form={form} layout="vertical" onFinish={handleSubmit}>
             {/* Email */}
             <Form.Item
-              label="Email"
+              label="E-mail"
               name="email"
               className="form-item"
               rules={[
-                { required: true, message: "Email is required" },
-                { type: "email", message: "Enter a valid email" },
+                {
+                  required: true,
+                  message: "L'adresse électronique est requise.",
+                },
+                {
+                  type: "email",
+                  message: "Veuillez saisir une adresse e-mail valide.",
+                },
               ]}
             >
-              <Input placeholder="Enter your email" className="custom-input" />
+              <Input
+                placeholder="Saisissez votre adresse e-mail"
+                className="custom-input"
+              />
             </Form.Item>
 
             {/* Submit */}
@@ -60,16 +75,16 @@ export default function ForgetPasswordForm() {
               loading={isSubmitting}
               className="h-10! w-full! lg:h-12! bg-linear-to-r! from-[#9810FA]!  to-[#E60076]! shadow-none! mb-3 rounded-xl!"
             >
-              Submit
+              Soumettre
             </Button>
           </Form>
         </div>
       </div>
 
       <p className="text-sm text-[#7E7E7E]">
-        Remember your password?{" "}
+        Vous vous souvenez de votre mot de passe?{" "}
         <Link href="/auth/login" className="text-[#A855F7] underline">
-          Sign In
+          Se connecter
         </Link>
       </p>
     </div>

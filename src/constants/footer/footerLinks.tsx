@@ -10,14 +10,14 @@ const socialLinks = [
 ];
 
 const productLinks = [
-  { name: "Features", href: "#features" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Faq", href: "#faq" },
+  { name: "Caractéristiques", href: "#features" },
+  { name: "Tarification", href: "#pricing" },
+  { name: "FAQ", href: "#faq" },
 ];
 
 const legalLinks = [
-  { name: "Privacy", href: "/privacy" },
-  { name: "Terms", href: "/terms" },
+  { name: "Confidentialité", href: "/privacy" },
+  { name: "Termes", href: "/terms" },
   { name: "Cookies", href: "/cookies" },
 ];
 

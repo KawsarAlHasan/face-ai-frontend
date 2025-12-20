@@ -27,9 +27,8 @@ export default function PlanCard({
   index,
   isPopular = false,
 }: PlanCardProps) {
-
   // Price calculation (amount is in cents, so divide by 100)
-  const price = plan.amount / 100;
+  const price = plan.amount;
 
   // console.log(plan, "plan");
 
@@ -47,7 +46,9 @@ export default function PlanCard({
 
       console.log(res, "response");
     } catch (error: any) {
-      toast.error( error?.response?.data?.error || "Something went wrong");
+      toast.error(
+        error?.response?.data?.error || "Quelque chose s'est mal passé."
+      );
       console.log(error, "error");
     }
   };
@@ -65,7 +66,7 @@ export default function PlanCard({
       {isPopular && (
         <div className="absolute top-6 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
           <div className="flex items-center gap-2 text-white">
-            <CornerRightDown /> Best Deal
+            <CornerRightDown /> Meilleure offre
           </div>
         </div>
       )}
@@ -88,7 +89,15 @@ export default function PlanCard({
               {price.toFixed(2)}
             </span>
           </div>
-          <span className="text-gray-400">/{plan.interval}</span>
+          <span className="text-gray-400">
+            {plan.interval === "week"
+              ? "semaine"
+              : plan.interval === "month"
+              ? "mois"
+              : plan.interval === "year"
+              ? "année"
+              : plan.interval}
+          </span>
         </div>
 
         {/* Features List */}
@@ -104,7 +113,14 @@ export default function PlanCard({
               <Check className="w-4 h-4 text-white shrink-0 mt-0.5" />
             </div>
             <span className="text-gray-300 text-sm">
-              {plan.analyses_per_interval} analyses per {plan.interval}
+              {plan.analyses_per_interval} analyse par{" "}
+              {plan.interval === "week"
+                ? "semaine"
+                : plan.interval === "month"
+                ? "mois"
+                : plan.interval === "year"
+                ? "année"
+                : plan.interval}
             </span>
           </li>
 
@@ -120,7 +136,7 @@ export default function PlanCard({
                 <Check className="w-4 h-4 text-white shrink-0 mt-0.5" />
               </div>
               <span className="text-gray-300 text-sm">
-                {plan.trial_days} days free trial
+                {plan.trial_days} essais gratuits de jours
               </span>
             </li>
           )}
@@ -136,7 +152,7 @@ export default function PlanCard({
               >
                 <Check className="w-4 h-4 text-white shrink-0 mt-0.5" />
               </div>
-              <span className="text-gray-300 text-sm">Active subscription</span>
+              <span className="text-gray-300 text-sm">Abonnement actif</span>
             </li>
           )}
         </ul>
@@ -150,7 +166,7 @@ export default function PlanCard({
               : "bg-[#8200DB] hover:bg-[#9810FA]"
           }`}
         >
-          {plan.trial_days > 0 ? "Start Free Trial" : "Subscribe Now"}
+          {plan.trial_days > 0 ? "Essai gratuit" : "Abonnez-vous maintenant"}
         </button>
       </div>
     </div>

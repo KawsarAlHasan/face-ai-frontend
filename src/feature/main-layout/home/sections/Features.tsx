@@ -6,9 +6,12 @@ export default function Features() {
     <section id="features" className="container py-10 lg:py-20 ">
       {/* Header */}
       <div className="text-center mb-16">
-        <h2 className="section-title text-balance">Powerful Features</h2>
+        <h2 className="section-title text-balance">
+          Fonctionnalités puissantes
+        </h2>
         <p className="section-subtitle text-balance">
-          Discover how our AI technology helps you achieve your goals
+          Découvrez comment notre technologie d'IA vous aide à atteindre vos
+          objectifs.
         </p>
       </div>
 

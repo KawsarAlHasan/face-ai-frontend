@@ -23,15 +23,15 @@ export async function analyzeImage(
 
 // Helper function to get rating label based on score
 function getRatingLabel(score: number): string {
-  if (score >= 9.5) return "Exceptional";
-  if (score >= 9.0) return "Outstanding";
+  if (score >= 9.5) return "Exceptionnel";
+  if (score >= 9.0) return "Remarquable";
   if (score >= 8.5) return "Excellent";
-  if (score >= 8.0) return "Very Good";
-  if (score >= 7.5) return "Good";
-  if (score >= 7.0) return "Above Average";
-  if (score >= 6.0) return "Average";
-  if (score >= 5.0) return "Below Average";
-  return "Needs Improvement";
+  if (score >= 8.0) return "Très bien";
+  if (score >= 7.5) return "Bien";
+  if (score >= 7.0) return "Supérieur à la moyenne";
+  if (score >= 6.0) return "Moyenne";
+  if (score >= 5.0) return "En dessous de la moyenne";
+  return "Nécessite des améliorations";
 }
 
 // Transform API response to UI-friendly format
@@ -48,13 +48,13 @@ export function transformAnalysisData(
 
   // Map rating keys to display names
   const metricNameMap: Record<string, string> = {
-    skin_quality: "Skin Quality",
-    jawline_definition: "Jawline Definition",
-    cheekbone_structure: "Cheekbone Structure",
-    eye_area: "Eye Area",
-    facial_proportions: "Facial Proportions",
-    symmetry: "Symmetry",
-    goals: "Goals",
+    skin_quality: "Qualité de la peau",
+    jawline_definition: "Définition de la mâchoire",
+    cheekbone_structure: "Structure des pommettes",
+    eye_area: "Contour des yeux",
+    facial_proportions: "Proportions du visage",
+    symmetry: "Symétrie",
+    goals: "Objectifs",
   };
 
   // Transform ratings to metrics array (excluding 'id')

@@ -99,7 +99,7 @@ const StartAnalysis = () => {
                 {/* Key Strengths Section */}
                 <div>
                   <h2 className="text-white text-lg font-medium mb-3">
-                    Key Strengths
+                    Points forts
                   </h2>
                   <div className="space-y-2">
                     {analysisResult.keyStrengths.map((strength, index) => (
@@ -119,7 +119,7 @@ const StartAnalysis = () => {
                 {/* Improvement Tips Section */}
                 <div>
                   <h2 className="text-white text-lg font-medium mb-3">
-                    Improvement Tips and Tricks
+                    Conseils et astuces pour s'améliorer
                   </h2>
                   <div className="space-y-2">
                     {analysisResult.improvementTips.map((tip, index) => (
@@ -137,7 +137,7 @@ const StartAnalysis = () => {
                 {analysisResult.aiRecommendations.length > 0 && (
                   <div>
                     <h2 className="text-white text-lg font-medium mb-3">
-                      AI Recommendations
+                      Recommandations de l'IA
                     </h2>
                     <div className="space-y-2">
                       {analysisResult.aiRecommendations.map((rec, index) => (
@@ -162,7 +162,7 @@ const StartAnalysis = () => {
                   onClick={handleRemoveImage}
                   className="w-full cursor-pointer bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold py-3 rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
                 >
-                  Start New Analysis
+                  Démarrer une nouvelle analyse
                 </button>
               </div>
             </div>

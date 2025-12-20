@@ -12,10 +12,10 @@ const Subscription = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h2 className="text-3xl lg:text-4xl font-medium mb-2 text-[#FFFFFF]">
-            Choose Your Plan
+            Choisissez votre forfait
           </h2>
           <p className="section-subtitle">
-            Select the package that matches your goals
+            Choisissez le forfait qui correspond à vos objectifs
           </p>
         </div>
 

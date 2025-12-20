@@ -24,8 +24,8 @@ export default function Pricing() {
       {/* Footer Note */}
       <div className="text-center text-white text-sm">
         <p>
-          Secure payment on PayPal • Cancel anytime • 30-day money back
-          guarantee
+          Paiement sécurisé via PayPal • Annulation possible à tout moment •
+          Garantie satisfait ou remboursé de 30 jours
         </p>
       </div>
     </section>

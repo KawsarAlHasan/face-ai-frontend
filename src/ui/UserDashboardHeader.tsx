@@ -9,7 +9,7 @@ import { Avatar, Image } from "antd";
 const UserDashboardHeader = () => {
   const { profileData, isLoading, isError, mutate } = useMyProfile();
 
-  console.log(profileData, "profileData");
+  // console.log(profileData, "profileData");
 
   return (
     <div className="flex items-center gap-x-7 justify-end">

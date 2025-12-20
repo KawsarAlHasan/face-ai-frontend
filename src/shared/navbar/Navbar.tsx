@@ -101,7 +101,14 @@ export default function Navbar() {
               alt="Logo"
               width={180}
               height={80}
-              className="h-8 lg:h-10 w-fit"
+              className="h-8 lg:h-10 w-fit hidden md:block"
+            />
+            <Image
+              src="/favicon.png"
+              alt="Logo"
+              width={180}
+              height={80}
+              className="h-8 lg:h-10 w-fit md:hidden"
             />
           </Link>
 
@@ -127,10 +134,13 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             {!token && (
               <Link href="/auth/login" className="font-medium">
-                Sign In
+                Se connecter
               </Link>
             )}
-            <PrimaryButton onClick={handleStart}>Get Started</PrimaryButton>
+            <PrimaryButton onClick={handleStart}>
+              <span className="block md:hidden">Commencer</span>
+              <span className="hidden md:block">Commencez maintenant</span>
+            </PrimaryButton>
 
             {token && (
               <button
@@ -140,7 +150,11 @@ export default function Navbar() {
                   router.push("/auth/login");
                 }}
               >
-                <IoIosLogOut size={24} />
+                <IoIosLogOut
+                  title="Déconnexion"
+                  className="text-red-400 hover:text-red-600"
+                  size={24}
+                />
               </button>
             )}
 
@@ -207,7 +221,7 @@ export default function Navbar() {
                     className="flex items-center gap-x-2 text-red-500 hover:text-red-600 font-medium ps-5"
                   >
                     <IoIosLogOut size={18} />
-                    <span className="font-normal">Log Out</span>
+                    <span className="font-normal">Déconnexion</span>
                   </div>
                 )}
               </div>

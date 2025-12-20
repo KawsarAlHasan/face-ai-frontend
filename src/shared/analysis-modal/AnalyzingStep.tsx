@@ -11,9 +11,9 @@ interface AnalyzingStepProps {
 export function AnalyzingStep({ image }: AnalyzingStepProps) {
   return (
     <div className="px-6 pb-6">
-      <h2 className="text-xl font-bold text-white mb-2">Analyzing Your Face</h2>
+      <h2 className="text-xl font-bold text-white mb-2">Analyse de votre visage</h2>
       <p className="text-sm text-gray-400 mb-6">
-        Our AI is processing your facial features...
+        Notre IA analyse vos traits faciaux...
       </p>
 
       <div className="relative rounded-xl overflow-hidden mb-6 bg-gradient-to-br from-[#9810FA]/10 to-[#E60076]/10 aspect-video flex items-center justify-center">
@@ -48,7 +48,7 @@ export function AnalyzingStep({ image }: AnalyzingStepProps) {
       </div>
 
       <div className="space-y-2">
-        <p className="text-center text-gray-400 text-sm">Calculating scores...</p>
+        <p className="text-center text-gray-400 text-sm">Calcul des scores...</p>
         {/* Progress indicator */}
         <div className="w-full bg-gray-700 rounded-full h-1.5 overflow-hidden">
           <div 

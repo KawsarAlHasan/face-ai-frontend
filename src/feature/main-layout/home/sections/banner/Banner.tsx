@@ -1,7 +1,5 @@
 import Image from "next/image";
 import { ArrowRight, Star } from "lucide-react";
-import PrimaryButton from "@/shared/buttons/PrimaryButton";
-import stats from "@/constants/home/bannerStats";
 import BannerBtn from "./BannerBtn";
 
 export default function Banner() {
@@ -42,17 +40,17 @@ export default function Banner() {
           >
             <Star className="lg:w-4 lg:h-4 w-3 h-3 text-[#8200DB] fill-current" />
             <span className="text-xs lg:text-sm font-medium text-[#8200DB]">
-              Transform Your Appearance
+              Transformez votre apparence
             </span>
           </div>
 
           {/* Heading */}
           <div data-aos="fade-up" data-aos-delay="100" className="mb-4">
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight max-w-[800px] 2xl:max-w-[1000px] ">
-              Transform Your Appearance With
+              Transformez votre apparence avec
               <span className="bg-linear-to-r from-[#9810FA] to-[#E60076] bg-clip-text text-transparent">
                 {" "}
-                AI
+                l’IA
               </span>
             </h1>
           </div>
@@ -63,8 +61,9 @@ export default function Banner() {
             data-aos-delay="150"
             className="lg:text-lg text-[#FFFFFF] mb-8 lg:mb-12 max-w-2xl leading-relaxed"
           >
-            Start your hair and skincare journey with AI analysis and
-            personalized recommendations to naturally enhance your features.
+            Débutez votre parcours de soins capillaires et cutanés grâce à
+            l'analyse par IA et aux recommandations personnalisées pour sublimer
+            naturellement vos atouts.
           </p>
 
           {/* CTA Buttons */}
@@ -75,7 +74,7 @@ export default function Banner() {
           >
             <BannerBtn />
             <button className="w-full h-10 md:w-auto md:px-8 md:py-3 border border-[#9810FA] lg:h-[60px] text-white font-medium rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center justify-center gap-2">
-              Watch Demo
+              Regarder la démo
               <ArrowRight size={18} className="hidden md:block" />
             </button>
           </div>
@@ -86,19 +85,38 @@ export default function Banner() {
             data-aos-delay="250"
             className="flex items-center gap-2 lg:gap-6 border-t border-[#C6D2FF]/40 pt-7 max-w-md"
           >
-            {stats.map((item, i) => (
-              <div
-                key={i}
-                className="flex flex-col justify-start border border-[#9810FA] p-2 lg:p-4 rounded-md lg:rounded-xl text-start backdrop-blur-xs"
-              >
-                <div className="text-lg lg:text-[30px] font-medium text-white">
-                  {item.value}
-                </div>
-                <p className="text-xs lg:text-base text-gray-400 text-nowrap">
-                  {item.label}
-                </p>
+            <div className="flex flex-col justify-start border border-[#9810FA] p-2 lg:p-4 rounded-md lg:rounded-xl text-start backdrop-blur-xs">
+              <div className="text-lg lg:text-[30px] font-medium text-white">
+                50k+
               </div>
-            ))}
+              <p className="text-xs lg:text-base text-gray-400 text-nowrap">
+                Utilisateurs actifs
+              </p>
+            </div>
+
+            <div className="flex flex-col justify-start border border-[#9810FA] p-2 lg:p-4 rounded-md lg:rounded-xl text-start backdrop-blur-xs">
+              <div className="text-lg lg:text-[30px] font-medium text-white">
+                200k+
+              </div>
+              <p className="text-xs lg:text-base text-gray-400 text-nowrap">
+                {/* Mobile */}
+                <p className="text-[10px] text-gray-400 md:hidden">Analyses</p>
+
+                {/* Desktop */}
+                <p className="hidden md:block text-base text-gray-400 text-nowrap">
+                  Numérisations terminées
+                </p>
+              </p>
+            </div>
+
+            <div className="flex flex-col justify-start border border-[#9810FA] p-2 lg:p-4 rounded-md lg:rounded-xl text-start backdrop-blur-xs">
+              <div className="text-lg lg:text-[30px] font-medium text-white">
+                4.8/5
+              </div>
+              <p className="text-xs lg:text-base text-gray-400 text-nowrap">
+                Note moyenne
+              </p>
+            </div>
           </div>
         </div>
 

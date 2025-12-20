@@ -108,7 +108,7 @@ const Sidebar = ({ onCloseDrawer }: SidebarProps) => {
             className="flex items-center gap-x-2 text-red-500 hover:text-red-600"
           >
             <IoIosLogOut size={18} />
-            <span className="font-normal">Log Out</span>
+            <span className="font-normal">Déconnexion</span>
           </Link>
         </div>
       </div>

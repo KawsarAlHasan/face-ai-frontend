@@ -26,9 +26,9 @@ const Summary = ({ dashboardData }: any) => {
             {dashboardData?.total_scans || 0}
           </span>
         </div>
-        <h3 className="text-white font-semibold mb-1">Total Scans</h3>
+        <h3 className="text-white font-semibold mb-1">Nombre total de scans</h3>
         <p className="text-sm text-[#D8D8D8]">
-          {dashboardData?.this_month_improvement || 0} this month
+          {dashboardData?.this_month_improvement || 0} ce mois-ci
         </p>
       </div>
 
@@ -43,9 +43,9 @@ const Summary = ({ dashboardData }: any) => {
             {dashboardData?.latest_score || 0}
           </span>
         </div>
-        <h3 className="text-white font-semibold mb-1">Latest Score</h3>
+        <h3 className="text-white font-semibold mb-1">Dernier score</h3>
         <p className="text-sm text-[#D8D8D8]">
-          {dashboardData?.this_month_improvement_score || 0} improvement
+          Amélioration de {dashboardData?.this_month_improvement_score || 0}
         </p>
       </div>
 
@@ -60,9 +60,9 @@ const Summary = ({ dashboardData }: any) => {
             {dashboardData?.symmetry || 0}/10
           </span>
         </div>
-        <h3 className="text-white font-semibold mb-1">Symmetry</h3>
+        <h3 className="text-white font-semibold mb-1">Symétrie</h3>
         <p className="text-sm text-[#D8D8D8]">
-          {dashboardData?.semmetric_improvement || 0} this month
+          {dashboardData?.semmetric_improvement || 0} ce mois-ci
         </p>
       </div>
 
@@ -77,9 +77,11 @@ const Summary = ({ dashboardData }: any) => {
             {dashboardData?.user_balance || 0}
           </span>
         </div>
-        <h3 className="text-white font-semibold mb-1">Subscription Balance</h3>
+        <h3 className="text-white font-semibold mb-1">
+          Solde de votre abonnement
+        </h3>
         <p className="text-sm text-[#D8D8D8]">
-          Your current balance is {dashboardData?.user_balance || 0}
+          Votre solde actuel est de {dashboardData?.user_balance || 0}
         </p>
       </div>
     </div>

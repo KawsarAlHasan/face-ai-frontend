@@ -29,48 +29,48 @@ const SecurityForm = () => {
     <Form form={form2} layout="vertical" onFinish={onFinish}>
       {/* Current Password */}
       <Form.Item
-        label="Current Password"
+        label="Mot de passe actuel"
         name="currentPassword"
         className="form-item"
-        rules={[{ required: true, message: "Current password is required" }]}
+        rules={[{ required: true, message: "Le mot de passe actuel est requis." }]}
       >
         <Input.Password placeholder="**************" className="custom-input" />
       </Form.Item>
 
       {/* New Password */}
       <Form.Item
-        label="Password"
+        label="Mot de passe"
         name="password"
         className="form-item"
         rules={[
-          { required: true, message: "Password is required" },
+          { required: true, message: "Un mot de passe est requis." },
           {
             pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,
             message:
-              "Password must be at least 8 characters and contain 1 uppercase letter, 1 number, and 1 special character",
+              "Le mot de passe doit comporter au moins 8 caractères et inclure 1 lettre majuscule, 1 chiffre et 1 caractère spécial.",
           },
         ]}
       >
         <Input.Password
-          placeholder="Enter your password"
+          placeholder="Saisissez votre mot de passe"
           className="custom-input"
         />
       </Form.Item>
 
       {/* Re-New Password */}
       <Form.Item
-        label="Re-New Password"
+        label="Nouveau mot de passe"
         name="confirmPassword"
         className="form-item"
         dependencies={["password"]}
         rules={[
-          { required: true, message: "Please confirm your password" },
+          { required: true, message: "Veuillez confirmer votre mot de passe" },
           ({ getFieldValue }) => ({
             validator(_, value) {
               if (!value || getFieldValue("password") === value) {
                 return Promise.resolve();
               }
-              return Promise.reject(new Error("Passwords do not match"));
+              return Promise.reject(new Error("Les mots de passe ne correspondent pas."));
             },
           }),
         ]}
@@ -79,8 +79,8 @@ const SecurityForm = () => {
       </Form.Item>
 
       {/* Save Button */}
-      <Button type="primary" className="save-button" htmlType="submit">
-        Save Changes
+      <Button type="primary" className="save-button2" htmlType="submit">
+        Enregistrer les modifications
       </Button>
     </Form>
   );

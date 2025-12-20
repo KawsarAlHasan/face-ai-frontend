@@ -2,27 +2,27 @@ import { Upload, Search, Sliders } from "lucide-react";
 const steps = [
   {
     number: "01",
-    title: "Upload Your Photo",
+    title: "Téléchargez votre photo",
     description:
-      "Take a selfie or upload a clear photo of your face to begin the analysis.",
+      "Prenez un selfie ou téléchargez une photo nette de votre visage pour commencer l'analyse.",
     icon: Upload,
     borderColor: "border-[#9810FA]/80",
     numberBg: "bg-[#9810FA]",
   },
   {
     number: "02",
-    title: "Instant AI Analysis",
+    title: "Analyse instantanée par IA",
     description:
-      "Our AI analyzes your face across multiple criteria and generates your personalized score.",
+      "Notre IA analyse votre visage selon de multiples critères et génère votre score personnalisé.",
     icon: Search,
     borderColor: "border-pink-500",
     numberBg: "bg-[#E60076]",
   },
   {
     number: "03",
-    title: "Get Your Routines",
+    title: "Adoptez vos routines",
     description:
-      "Receive personalised exercises and routines to naturally enhance your features.",
+      "Recevez des exercices et des programmes personnalisés pour sublimer naturellement vos atouts.",
     icon: Sliders,
     borderColor: "border-blue-500",
     numberBg: "bg-[#432DD7]",

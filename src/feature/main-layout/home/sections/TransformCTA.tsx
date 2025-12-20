@@ -17,19 +17,20 @@ export default function TransformCTA() {
             className=" rounded-full! px-6 lg:px-10! font-medium h-auto lg:h-[35px]! bg-[#FFFFFF33]! cursor-auto! text-xs! lg:text-base! text-white! mb-6!"
             icon={<Sparkles size={16} />}
           >
-            Join 50,000+ users
+            Rejoignez plus de 50 000 utilisateurs
           </Button>
         </div>
 
         {/* Main Heading */}
         <div className="space-y-4 text-center">
           <h1 className="text-4xl md:text-5xl font-medium text-white">
-            Ready to transform your appearance?
+            Prêt(e) à transformer votre apparence ?
           </h1>
 
           {/* Subheading */}
           <p className="section-subtitle max-w-xl mx-auto">
-            Start your free analysis today and discover your full potential
+            Commencez dès aujourd'hui votre analyse faciale et découvrez tout
+            votre potentiel.
           </p>
         </div>
 
@@ -40,14 +41,14 @@ export default function TransformCTA() {
             size="large"
             className="bg-[#C800DE]! border-0! text-white! h-[60px]!"
           >
-            Start Free Analysis
+            Début de l'analyse du visage
           </Button>
         </div>
 
         {/* Trust Indicators */}
         <div className="space-y-3 pt-6 ">
           <p className="section-subtitle text-sm! text-[#FFFFFFCC]! text-center">
-            No credit card required • Get started in less than 2 minutes
+            Aucune carte de crédit requise • Commencez en moins de 2 minutes
           </p>
         </div>
       </div>

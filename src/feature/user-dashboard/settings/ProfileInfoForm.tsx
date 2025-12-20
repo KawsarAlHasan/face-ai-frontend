@@ -6,6 +6,7 @@ import "./style.css";
 import { useMyProfile } from "@/api-services/userServices";
 import { BASE_URL, fetcherWithTokenPatch } from "@/api-services/api";
 import { toast } from "sonner";
+import Spinner from "@/shared/Spinner";
 
 const ProfileInfoForm = () => {
   const { profileData, isLoading, isError, mutate } = useMyProfile();
@@ -63,23 +64,26 @@ const ProfileInfoForm = () => {
 
       console.log(res, "res");
 
-      toast.success("Profile updated successfully!");
+      toast.success("Profil mis à jour avec succès!");
 
       mutate();
     } catch (error: any) {
       console.error("Update error:", error);
-      toast.error(error?.response?.data?.message || "Failed to update profile");
+      toast.error(
+        error?.response?.data?.message ||
+          "Impossible de mettre à jour le profil"
+      );
     } finally {
       setUploading(false);
     }
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   if (isError) {
-    return <div>Error loading profile data</div>;
+    return <div>Erreur lors du chargement des données de profil</div>;
   }
 
   return (
@@ -102,7 +106,7 @@ const ProfileInfoForm = () => {
             className="change-photo-button"
             type="dashed"
           >
-            Change Photo
+            Changer de photo
           </Button>
         </Upload>
       </div>
@@ -114,15 +118,15 @@ const ProfileInfoForm = () => {
         className="profile-form"
       >
         <Form.Item
-          label="Full Name"
+          label="Nom et prénom"
           name="full_name"
           className="form-item"
-          rules={[{ required: true, message: "Please enter your full name" }]}
+          rules={[{ required: true, message: "Veuillez saisir votre nom complet" }]}
         >
           <Input placeholder="Alex Johnson" className="custom-input" />
         </Form.Item>
 
-        <Form.Item label="Email" name="email" className="form-item">
+        <Form.Item label="E-mail" name="email" className="form-item">
           <Input
             placeholder="Alex.34@yahoo.com"
             className="custom-input text-white!"
@@ -131,12 +135,12 @@ const ProfileInfoForm = () => {
         </Form.Item>
 
         <Form.Item
-          label="Phone Number"
+          label="Numéro de téléphone"
           name="phone_number"
           className="form-item"
         >
           <Input
-            placeholder="Enter your phone number"
+            placeholder="Saisissez votre numéro de téléphone"
             className="custom-input"
           />
         </Form.Item>
@@ -144,10 +148,10 @@ const ProfileInfoForm = () => {
         <Button
           type="primary"
           htmlType="submit"
-          className="save-button"
+          className="save-button2"
           loading={uploading}
         >
-          {uploading ? "Saving..." : "Save Changes"}
+          {uploading ? "Économie..." : "Enregistrer les modifications"}
         </Button>
       </Form>
     </div>

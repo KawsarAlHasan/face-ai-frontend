@@ -25,9 +25,9 @@ export default function Footer() {
               />
             </div>
             <p className="text-[#99A1AF] text-sm leading-relaxed text-justify mb-6">
-              Transform your appearance naturally with our cutting-edge AI
-              technology. Precise analysis and personalized routines to achieve
-              your goals.
+              Transformez votre apparence naturellement grâce à notre
+              technologie d'IA de pointe. Analyse précise et routines
+              personnalisées pour atteindre vos objectifs.
             </p>
             {/* Social Icons */}
             <div className="flex gap-4">
@@ -48,7 +48,7 @@ export default function Footer() {
 
           {/* Product Links */}
           <div className="col-span-1">
-            <h4 className="text-white font-semibold mb-6">Product</h4>
+            <h4 className="text-white font-semibold mb-6">Produit</h4>
             <ul className="space-y-4">
               {productLinks.map((link, idx) => (
                 <li key={idx}>
@@ -65,7 +65,7 @@ export default function Footer() {
 
           {/* Legal Links */}
           <div className="col-span-1">
-            <h4 className="text-white font-semibold mb-6">Legal</h4>
+            <h4 className="text-white font-semibold mb-6">Légal</h4>
             <ul className="space-y-4">
               {legalLinks.map((link, idx) => (
                 <li key={idx}>
@@ -87,7 +87,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="pt-4">
           <p className="text-gray-500 text-sm">
-            © 2025 FaceAI. All rights reserved.
+            © {new Date().getFullYear()} FaceAI. Tous droits réservés.
           </p>
         </div>
       </div>

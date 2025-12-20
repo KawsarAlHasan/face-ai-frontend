@@ -57,11 +57,12 @@ const Dashboard = () => {
               <div className=" flex md:flex-row flex-col items-center gap-3 w-full mb-6">
                 <div className="bg-black/60 border-2 border-purple-500/30 rounded-3xl p-6 py-[30px] backdrop-blur-sm w-full">
                   <h2 className="md:text-[22px] text-xl font-normal text-white mb-2">
-                    Upgrade to Premium
+                    Passez à la version Premium
                   </h2>
 
                   <p className="text-[#D8D8D8] text-[14px] mb-6">
-                    Unlock all advanced features instantly.
+                    Débloquez instantanément toutes les fonctionnalités
+                    avancées.
                   </p>
 
                   <button
@@ -71,17 +72,18 @@ const Dashboard = () => {
                     className="w-full cursor-pointer bg-linear-to-r from-purple-500 to-pink-500 
                                       text-white font-medium py-3 rounded-md flex items-center justify-center gap-2"
                   >
-                    <Sparkles className="w-5 h-5" /> Continue
+                    <Sparkles className="w-5 h-5" /> Continuer
                   </button>
                 </div>
 
                 <div className="bg-black/60 border-2 border-purple-500/30 rounded-3xl p-6 py-[30px] backdrop-blur-sm w-full">
                   <h2 className="md:text-[22px] text-xl font-normal text-white mb-2">
-                    Start New Analysis
+                    Démarrer une nouvelle analyse
                   </h2>
 
                   <p className="text-[#D8D8D8] text-[14px] mb-6">
-                    Upload a selfie to get instant AI-powered insights
+                    Téléchargez un selfie pour obtenir instantanément des
+                    informations basées sur l'IA.
                   </p>
 
                   <button
@@ -91,14 +93,14 @@ const Dashboard = () => {
                     className="w-full cursor-pointer bg-linear-to-r from-purple-500 to-pink-500 
                                       text-white font-medium py-3 rounded-md flex items-center justify-center gap-2"
                   >
-                    <Image className="w-5 h-5" /> Upload Photo
+                    <Image className="w-5 h-5" /> Télécharger une photo
                   </button>
                 </div>
               </div>
 
               <div>
                 <h2 className="text-2xl font-medium mb-4 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  AI Recommendations
+                  Recommandations de l'IA
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -129,10 +131,10 @@ const Dashboard = () => {
           <div className="bg-black/60 border-2 border-purple-500/30 rounded-3xl p-6 backdrop-blur-sm ">
             <div className="flex items-center justify-between mb-6">
               <h2 className="md:text-2xl text-xl font-normal text-white">
-                Recent Analysis
+                Analyse récente
               </h2>
               <button className="text-purple-400 hover:text-purple-300 md:text-sm text-xs font-medium">
-                See All
+                Voir tout
               </button>
             </div>
 
@@ -151,11 +153,10 @@ const Dashboard = () => {
                     </div>
                     <div>
                       <p className="text-white md:font-medium font-normal">
-                        {}
                         {new Date(item?.created_at).toDateString()}
                       </p>
                       <p className="text-gray-400 md:text-sm text-xs">
-                        Analysis completed
+                        Analyse terminée
                       </p>
                     </div>
                   </div>
