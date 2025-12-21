@@ -8,9 +8,9 @@ export default function Pricing() {
     <section id="pricing" className="py-10 lg:py-20 container">
       {/* Header */}
       <div className="text-center mb-12">
-        <h2 className="section-title">Choose Your Plan</h2>
+        <h2 className="section-title">Choisissez votre forfait</h2>
         <p className="section-subtitle">
-          Select the package that matches your goals
+          Choisissez le forfait qui correspond à vos objectifs
         </p>
       </div>
 
