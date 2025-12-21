@@ -16,11 +16,17 @@ export default function Navbar() {
   const [activePath, setActivePath] = useState<string>("#home");
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
+  const [token, setToken] = useState<string | undefined>(undefined);
+  const [isMounted, setIsMounted] = useState(false);
   const lastScrollTop = useRef(0);
 
-  const token = Cookies.get("token");
-
   const router = useRouter();
+
+  // Handle mounting to prevent hydration mismatch
+  useEffect(() => {
+    setIsMounted(true);
+    setToken(Cookies.get("token"));
+  }, []);
 
   useEffect(() => {
     const currentHash = window.location.hash || "#home";
@@ -87,6 +93,76 @@ export default function Navbar() {
     }
   };
 
+  const handleLogout = () => {
+    Cookies.remove("token");
+    setToken(undefined);
+    router.push("/auth/login");
+  };
+
+  // Render nothing or a placeholder until mounted to prevent hydration mismatch
+  if (!isMounted) {
+    return (
+      <nav
+        className={`sticky top-0 z-50 w-full transition-all duration-500 bg-[#000000] translate-y-0`}
+      >
+        <div className="container py-5 transition-colors duration-300">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className="shrink-0">
+              <Image
+                src="/Logo.png"
+                alt="Logo"
+                width={180}
+                height={80}
+                className="h-8 lg:h-10 w-fit hidden md:block"
+              />
+              <Image
+                src="/favicon.png"
+                alt="Logo"
+                width={180}
+                height={80}
+                className="h-8 lg:h-10 w-fit md:hidden"
+              />
+            </Link>
+
+            {/* Desktop Nav */}
+            <div className="hidden lg:flex items-center gap-8">
+              {navItems.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.href}
+                  className={`text-sm transition-all duration-300 ${
+                    activePath === item.href
+                      ? "font-semibold text-white"
+                      : "text-white/80 hover:text-white/70"
+                  }`}
+                >
+                  {item.labelKey}
+                </a>
+              ))}
+            </div>
+
+            {/* Right Section - Placeholder */}
+            <div className="flex items-center gap-4">
+              <PrimaryButton onClick={handleStart}>
+                <span className="block md:hidden">Commencer</span>
+                <span className="hidden md:block">Commencez maintenant</span>
+              </PrimaryButton>
+
+              {/* Mobile Menu */}
+              <button
+                className="lg:hidden text-xl"
+                onClick={() => setDrawerOpen(true)}
+              >
+                <MenuOutlined />
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
+
   return (
     <nav
       className={`sticky top-0 z-50 w-full transition-all duration-500 bg-[#000000]
@@ -145,10 +221,7 @@ export default function Navbar() {
             {token && (
               <button
                 className="text-white/80 hover:text-white/70 cursor-pointer"
-                onClick={() => {
-                  Cookies.remove("token");
-                  router.push("/auth/login");
-                }}
+                onClick={handleLogout}
               >
                 <IoIosLogOut
                   title="Déconnexion"
@@ -216,9 +289,9 @@ export default function Navbar() {
                   <div
                     onClick={() => {
                       onCloseDrawer();
-                      router.push("/auth/login");
+                      handleLogout();
                     }}
-                    className="flex items-center gap-x-2 text-red-500 hover:text-red-600 font-medium ps-5"
+                    className="flex items-center gap-x-2 text-red-500 hover:text-red-600 font-medium ps-5 cursor-pointer"
                   >
                     <IoIosLogOut size={18} />
                     <span className="font-normal">Déconnexion</span>

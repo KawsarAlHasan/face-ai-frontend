@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <AntProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body className={`${poppins.variable}  antialiased`}>
           <Toaster position="top-center" duration={2000} />
           {children}

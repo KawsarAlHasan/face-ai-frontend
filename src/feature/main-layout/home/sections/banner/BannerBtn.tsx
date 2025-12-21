@@ -1,12 +1,10 @@
 "use client";
-import AnalysisModal from "@/shared/analysis-modal/AnalysisModal";
+import React from "react";
 import PrimaryButton from "@/shared/buttons/PrimaryButton";
-import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 
 export default function BannerBtn() {
-  const [isOpen, setIsOpen] = useState(false);
 
   const router = useRouter();
   const token = Cookies.get("token");
@@ -29,7 +27,6 @@ export default function BannerBtn() {
 
         <span className="hidden md:inline">Début de l'analyse du visage</span>
       </PrimaryButton>
-      <AnalysisModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 }
