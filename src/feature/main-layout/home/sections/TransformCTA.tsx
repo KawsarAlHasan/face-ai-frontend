@@ -1,5 +1,4 @@
 "use client";
-import AnalysisModal from "@/shared/analysis-modal/AnalysisModal";
 import { Button } from "antd";
 import { Sparkles } from "lucide-react";
 import { useState } from "react";
@@ -52,7 +51,6 @@ export default function TransformCTA() {
           </p>
         </div>
       </div>
-      <AnalysisModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </section>
   );
 }

@@ -91,7 +91,7 @@ const StartAnalysis = () => {
 
         <div className="">
           {step === "results" && analysisResult && (
-            <div className="flex md:flex-row flex-col items-start gap-8 w-full">
+            <div className="flex md:flex-row flex-col items-start gap-8 w-full mt-4">
               <div className="md:min-w-lg bg-black p-2 md:pt-5 rounded-2xl border border-[#a855f795] pt-[610px]">
                 <ResultsStep results={analysisResult} />
               </div>

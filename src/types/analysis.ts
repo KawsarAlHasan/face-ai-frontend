@@ -1,5 +1,3 @@
-// types/analysis.ts
-
 export interface AnalysisRatings {
   id: number;
   skin_quality: number;

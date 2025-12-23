@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
@@ -15,7 +15,10 @@ export default function LoginForm() {
   const [form1] = Form.useForm();
   const router = useRouter();
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleLogin = async (values: any) => {
+    setIsSubmitting(true);
     try {
       const response = await API.post("/api/auth/login/", values);
 
@@ -28,8 +31,10 @@ export default function LoginForm() {
         router.push("/dashboard");
       }
     } catch (error: any) {
-      toast.error(error?.response?.data?.detail || "La connexion a échoué");
       console.log(error, "error");
+      toast.error(error?.response?.data?.detail || "La connexion a échoué");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -95,6 +100,7 @@ export default function LoginForm() {
 
             {/* Sign In */}
             <Button
+              loading={isSubmitting}
               htmlType="submit"
               className="h-10! w-full! lg:h-12! bg-linear-to-r! from-[#9810FA]!  to-[#E60076]! shadow-none! mb-3 rounded-xl!"
             >

@@ -32,8 +32,10 @@ export const fetcherWithTokenPatch = (url: string, data: any) => {
   }).then((res) => res.data);
 };
 
-
-export const fetcherWithTokenPostFormData = (url: string, formData: FormData) => {
+export const fetcherWithTokenPostFormData = (
+  url: string,
+  formData: FormData
+) => {
   const token = Cookies.get("token");
   return API.post(url, formData, {
     headers: {

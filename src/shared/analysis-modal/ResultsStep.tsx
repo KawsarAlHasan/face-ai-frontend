@@ -10,7 +10,7 @@ interface ResultsStepProps {
 
 export function ResultsStep({ results, onClose }: ResultsStepProps) {
   return (
-    <div className="px-6 pb-6 max-h-[90vh] overflow-y-auto">
+    <div className="px-6 pb-6 overflow-y-auto">
       <h2 className="text-xl font-semibold text-white mb-1">
         Résultats de votre analyse
       </h2>
