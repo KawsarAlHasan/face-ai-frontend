@@ -2,7 +2,7 @@
 import Cookies from "js-cookie";
 import axios from "axios";
 
-export const BASE_URL = "http://api.glowtrack.net";
+export const BASE_URL = "https://backend.glowtrack.net";
 // export const BASE_URL = "https://faceapi.dsrt321.online";
 // export const BASE_URL = "http://10.10.7.76:14020";
 
