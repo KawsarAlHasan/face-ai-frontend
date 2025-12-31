@@ -61,6 +61,8 @@ const StartAnalysis = () => {
     setStep("upload");
   };
 
+  console.log("analysisResult", analysisResult)
+
   return (
     <div className="flex items-center justify-center h-full overflow-y-auto">
       <div className="h-auto">

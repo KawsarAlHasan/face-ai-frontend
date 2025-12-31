@@ -3,6 +3,8 @@ import React from "react";
 import { Check, CornerRightDown } from "lucide-react";
 import { toast } from "sonner";
 import { fetcherWithTokenPost } from "@/api-services/api";
+import { useMyProfile } from "@/api-services/userServices";
+import { useRouter } from "next/navigation";
 
 interface Plan {
   active: boolean;
@@ -27,18 +29,22 @@ export default function PlanCard({
   index,
   isPopular = false,
 }: PlanCardProps) {
-  // Price calculation (amount is in cents, so divide by 100)
-  const price = plan.amount;
+  const router = useRouter();
+  const { profileData, isLoading, isError, mutate } = useMyProfile();
 
-  // console.log(plan, "plan");
+  // Price calculation (amount is in cents, so divide by 100)
+  const price = plan?.amount;
 
   const handleSubscription = async () => {
-    // router.push("/onboarding/plan");
+    if (!profileData) {
+      return router.push("/auth/login");
+    }
+
     try {
       const res = await fetcherWithTokenPost(
         "/api/payment/create-subscription/",
         {
-          plan_id: plan.id,
+          plan_id: plan?.id,
         }
       );
 
@@ -81,22 +87,22 @@ export default function PlanCard({
       >
         {/* Plan Name and Price */}
         <div className="mb-6 text-center">
-          <h3 className="text-2xl font-medium text-white mb-2">{plan.name}</h3>
+          <h3 className="text-2xl font-medium text-white mb-2">{plan?.name}</h3>
 
           <div className="flex items-end justify-center gap-1 mt-4">
             €
             <span className="text-5xl font-semibold text-white">
-              {price.toFixed(2)}
+              {price?.toFixed(2)}
             </span>
           </div>
           <span className="text-gray-400">
-            {plan.interval === "week"
+            {plan?.interval === "week"
               ? "semaine"
-              : plan.interval === "month"
+              : plan?.interval === "month"
               ? "mois"
-              : plan.interval === "year"
+              : plan?.interval === "year"
               ? "année"
-              : plan.interval}
+              : plan?.interval}
           </span>
         </div>
 
@@ -113,18 +119,18 @@ export default function PlanCard({
               <Check className="w-4 h-4 text-white shrink-0 mt-0.5" />
             </div>
             <span className="text-gray-300 text-sm">
-              {plan.analyses_per_interval} analyse par{" "}
-              {plan.interval === "week"
+              {plan?.analyses_per_interval} analyse par{" "}
+              {plan?.interval === "week"
                 ? "semaine"
-                : plan.interval === "month"
+                : plan?.interval === "month"
                 ? "mois"
-                : plan.interval === "year"
+                : plan?.interval === "year"
                 ? "année"
-                : plan.interval}
+                : plan?.interval}
             </span>
           </li>
 
-          {plan.trial_days > 0 && (
+          {plan?.trial_days > 0 && (
             <li className="flex items-center gap-3">
               <div
                 className={`p-1 rounded-full ${
@@ -136,12 +142,12 @@ export default function PlanCard({
                 <Check className="w-4 h-4 text-white shrink-0 mt-0.5" />
               </div>
               <span className="text-gray-300 text-sm">
-                {plan.trial_days} essais gratuits de jours
+                {plan?.trial_days} essais gratuits de jours
               </span>
             </li>
           )}
 
-          {plan.active && (
+          {plan?.active && (
             <li className="flex items-center gap-3">
               <div
                 className={`p-1 rounded-full ${
@@ -166,7 +172,7 @@ export default function PlanCard({
               : "bg-[#8200DB] hover:bg-[#9810FA]"
           }`}
         >
-          {plan.trial_days > 0 ? "Essai gratuit" : "Abonnez-vous maintenant"}
+          {plan?.trial_days > 0 ? "Essai gratuit" : "Abonnez-vous maintenant"}
         </button>
       </div>
     </div>

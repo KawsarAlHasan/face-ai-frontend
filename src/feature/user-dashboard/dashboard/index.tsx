@@ -1,12 +1,14 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Summary from "./Summary";
 import {
   useAnalysisList,
   useDashboardData,
 } from "@/api-services/dashboardServices";
-import { Droplet, Moon, Pipette, Sparkles, Image } from "lucide-react";
+import { Droplet, Moon, Pipette, Sparkles, Image, Check } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { Modal } from "antd";
+import { ResultsStep } from "@/shared/analysis-modal/ResultsStep";
 
 const recommendationUIMap: Record<
   string,
@@ -32,8 +34,22 @@ const recommendationUIMap: Record<
 const Dashboard = () => {
   const { dashboardData, isLoading, isError, mutate } = useDashboardData();
   const { analysisList } = useAnalysisList(3);
-
   const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<any>(null);
+
+  const showModal = (item: any) => {
+    setSelectedItem(item);
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   const mappedRecommendations =
     dashboardData?.ai_recommendations?.map((rec: any) => {
@@ -46,6 +62,8 @@ const Dashboard = () => {
         gradient: uiConfig?.gradient ?? "from-purple-500 to-pink-500",
       };
     }) || [];
+
+    console.log("selectedItem", selectedItem);
 
   return (
     <div className="">
@@ -142,7 +160,8 @@ const Dashboard = () => {
               {analysisList?.results?.map((item: any, index: any) => (
                 <div
                   key={index}
-                  className="bg-black/40 border border-purple-500/20 rounded-2xl p-4 flex items-center justify-between hover:border-purple-500/40 transition-all"
+                  // onClick={() => showModal(item)}
+                  className="cursor-pointer bg-black/40 border border-purple-500/20 rounded-2xl p-4 flex items-center justify-between hover:border-purple-500/40 transition-all"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-14 h-14 rounded-2xl bg-linear-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-col">
@@ -174,6 +193,79 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+
+      {/* <Modal
+        title="Basic Modal"
+        closable={{ "aria-label": "Custom Close Button" }}
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <div className="flex md:flex-row flex-col items-start gap-8 w-full mt-4">
+          <div className="md:min-w-lg bg-black p-2 md:pt-5 rounded-2xl border border-[#a855f795] pt-[610px]">
+            <ResultsStep results={selectedItem} />
+          </div>
+          <div className="md:min-w-lg min-w-full bg-black pt-5 border border-[#a855f795] rounded-2xl p-6 space-y-6">
+            <div>
+              <h2 className="text-white text-lg font-medium mb-3">
+                Points forts
+              </h2>
+              <div className="space-y-2">
+                {selectedItem?.keyStrengths?.map((strength: any, index: any) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 bg-gray-900 border border-gray-700 rounded px-4 py-3"
+                  >
+                    <Check className="w-4 h-4 text-green-500 shrink-0" />
+                    <span className="text-gray-300 text-sm">{strength}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-white text-lg font-medium mb-3">
+                Conseils et astuces pour s'améliorer
+              </h2>
+              <div className="space-y-2">
+                {selectedItem.improvementTips.map((tip: any, index: any) => (
+                  <div
+                    key={index}
+                    className="bg-gray-900 border border-gray-700 rounded px-4 py-3"
+                  >
+                    <span className="text-gray-300 text-sm">{tip}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {selectedItem.aiRecommendations.length > 0 && (
+              <div>
+                <h2 className="text-white text-lg font-medium mb-3">
+                  Recommandations de l'IA
+                </h2>
+                <div className="space-y-2">
+                  {selectedItem.aiRecommendations.map(
+                    (rec: any, index: any) => (
+                      <div
+                        key={index}
+                        className="bg-gray-900 border border-gray-700 rounded px-4 py-3"
+                      >
+                        <h3 className="text-purple-400 font-medium text-sm mb-1">
+                          {rec.title}
+                        </h3>
+                        <span className="text-gray-300 text-sm">
+                          {rec.description}
+                        </span>
+                      </div>
+                    )
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </Modal> */}
     </div>
   );
 };
